@@ -23,7 +23,9 @@
 
 # Next.js static export directory
 out/
+out.*
 out.zip
+out.zip/
 
 .next/*
 out/*
