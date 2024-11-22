@@ -1,0 +1,37 @@
+.carouselContainer {
+    overflow: hidden; /* Hide overflow for seamless scrolling */
+    padding: 20px 0;
+}
+
+.carousel {
+    display: flex;
+    animation: scroll 15s linear infinite; /* Seamless scrolling animation */
+    gap: 50px; /* Space between icons */
+}
+
+.iconWrapper {
+    flex: 0 0 auto; /* Prevent shrinking/growing */
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.iconWrapper:hover {
+    transform: scale(1.2); /* Slight zoom effect on hover */
+}
+
+.iconText {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 14px;
+}
+
+/* Keyframes for scrolling */
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%); /* Scroll halfway for a seamless loop */
+    }
+}
+

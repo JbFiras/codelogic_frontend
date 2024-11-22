@@ -1,0 +1,37 @@
+{
+  "name": "codelogic_frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.26.0",
+    "@fortawesome/fontawesome-svg-core": "^6.7.1",
+    "@fortawesome/free-solid-svg-icons": "^6.7.1",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@popperjs/core": "^2.11.8",
+    "axios": "^1.7.7",
+    "babel-runtime": "^6.26.0",
+    "bootstrap": "^5.3.3",
+    "dotenv": "^16.4.5",
+    "lottie-react": "^2.4.0",
+    "next": "14.2.15",
+    "react": "^18",
+    "react-bootstrap": "^2.10.5",
+    "react-dom": "^18",
+    "react-fontawesome": "^1.7.1",
+    "react-icons": "^5.3.0",
+    "react-lottie": "^1.2.8",
+    "react-toastify": "^10.0.6",
+    "sass": "^1.80.5",
+    "typewriter-effect": "^2.20.1"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.2.15"
+  }
+}

@@ -1,0 +1,20 @@
+.button-container {
+  position: relative;
+  display: inline-block;
+}
+
+.button-container button {
+  position: relative;
+  z-index: 1;
+}
+
+.svg-lines {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+  pointer-events: none;
+  z-index: 0;
+  width: 100px; 
+  height: 100px;
+}

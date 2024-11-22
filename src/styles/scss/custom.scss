@@ -1,0 +1,53 @@
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1100px
+);
+:root {
+  --main-bg-color: #0C1534;
+  --bs-btn-bg: #47cf73 !important;
+  --custom-div-color: #a88038;
+  --custom-class-color: #4B65FD;
+  --custom-class-content-color: #74b087;
+  --custom-css-selector-color: #38F1B9;
+  --custom-css-value-color: #de7300;
+  --custom-script-variable-color: #7a99ad;
+  --cp-color-1-hsl: 0deg 0% 100%;
+  --cp-color-1: hsl(var(--cp-color-1-hsl));
+  --cp-color-6: #c7c9d3;
+  --cp-color-yellow: #ffdd40;
+  --cp-color-11: #717790;
+  --cp-color-15: #252830;
+  --cp-color-14: #2c303a;
+  --cp-color-17: #131417;
+  --cp-color-link: #76daff;
+  --cp-header-height: 65px;
+  --cp-font-family: 'Lato', 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, Sans-Serif;
+  --cp-font-family-header-alt: 'Telefon', Sans-Serif;
+
+}
+.c-div-color {
+  color: var(--custom-div-color)
+}
+
+.c-class-color {
+  color: var(--custom-class-color)
+}
+
+.c-class-content-color {
+  color: var(--custom-class-content-color)
+}
+
+.c-css-selector-color {
+  color: var(--custom-css-selector-color)
+}
+
+.c-css-value-color {
+  color: var(--custom-css-value-color)
+}
+
+.c-script-variable-color {
+  color: var(--custom-script-variable-color)
+}
