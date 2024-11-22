@@ -53,12 +53,13 @@ export function Newsletter() {
       }
 
       const response = await api.post(
-          "email-subscription",
+          "/email-subscription",
           { email_address: email },
           {
             headers: {
-              "X-CSRF-TOKEN": csrfToken,
+              "X-CSRF-Token": csrfToken,
             },
+            withCredentials: true,
           }
       );
 
