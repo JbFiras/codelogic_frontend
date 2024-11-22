@@ -1,1 +1,0 @@
-self.__REACT_LOADABLE_MANIFEST="{\"components/newsletter/index.js -> lottie-react\":{\"id\":\"components/newsletter/index.js -> lottie-react\",\"files\":[\"static/chunks/node_modules_lottie-react_build_index_umd_js.js\"]}}"
