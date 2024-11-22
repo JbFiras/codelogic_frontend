@@ -3,7 +3,7 @@ import dynamic from "next/dynamic"; // Dynamically import components
 import animationDataCelebration from "./newsletter_celebration.json";
 import animationDataRightSide from "./newsletter_right_section.json";
 import AnimatedButton from "@/components/Buttons/AnimatedButton";
-import { api } from "@/services/axios";
+import {api, fetchCsrfToken } from "@/services/axios";
 import { toast } from "react-toastify";
 import NewsletterBanner from "@/components/newsletter/banner/newsletterBanner";
 
@@ -22,17 +22,7 @@ export function Newsletter() {
     }, 3000);
   };
 
-  const fetchCsrfToken = async () => {
-    try {
-      const response = await api.get("/csrf-token", {
-        withCredentials: true, // Include cookies
-      });
-      return response?.data?.csrf_token;
-    } catch (error) {
-      console.error("Error fetching CSRF token:", error);
-      return null;
-    }
-  };
+
 
   const handleSubscribe = async () => {
     if (isSubmitting) return; // Prevent multiple submissions
@@ -45,48 +35,32 @@ export function Newsletter() {
     try {
       const csrfToken = await fetchCsrfToken();
       if (!csrfToken) {
-        toast.warn("Something went wrong, please try again.");
-        setTimeout(() => {
-          setIsSubmitting(false);
-        }, 4000); // 4000ms = 4 seconds
+        toast.warn("Failed to fetch CSRF token. Please try again.");
+        setIsSubmitting(false);
         return;
       }
-
       const response = await api.post(
           "/email-subscription",
           { email_address: email },
           {
-            headers: {
-              "X-CSRF-Token": csrfToken,
-            },
             withCredentials: true,
           }
       );
-
       if (response.status === 201) {
-        setTimeout(() => {
-          setIsSubmitting(false);
-        }, 4000); // 4000ms = 4 seconds
-        showAnimation(); // Trigger the celebration animation
+        showAnimation();
         toast.success("Email added successfully.");
-        setEmail(""); // Clear the email input
+        setEmail("");
       }
     } catch (error) {
       if (error?.response?.status === 409) {
-        setTimeout(() => {
-          setIsSubmitting(false);
-        }, 4000); // 4000ms = 4 seconds
         toast.warn("Your Email is already subscribed!");
       } else {
-        setTimeout(() => {
-          setIsSubmitting(false);
-        }, 4000); // 4000ms = 4 seconds
-        toast.error("Something went wrong, please try again.");
+        toast.error("Something went wrong. Please try again.");
       }
     } finally {
       setTimeout(() => {
         setIsSubmitting(false);
-      }, 4000); // 4000ms = 4 seconds
+      }, 4000);
     }
   };
 

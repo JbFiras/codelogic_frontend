@@ -68,3 +68,47 @@ a {
     height: 59px;
   }
 }
+/*////////*/
+
+.globe-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem; /* Add a small gap between the form and the globe */
+}
+
+/* Ensure the globe matches the form's width */
+.globe-container > div {
+  width: 500px; /* Match the form's max width */
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  transform: scale(1); /* Reset any scaling */
+}
+
+/* Mobile & Tablet Styles */
+@media (max-width: 1199px) {
+  .globe-container {
+    margin-top: 0.5rem; /* Reduce spacing for smaller screens */
+  }
+
+  .globe-container > div {
+    width: 90%; /* Adjust width to be responsive for mobile */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+
+/* Form Styling Adjustments */
+@media (max-width: 768px) {
+  .p-4.shadow {
+    padding: 1.5rem; /* Adjust padding for smaller screens */
+  }
+
+  .btn {
+    width: 100%; /* Full-width button for better usability */
+  }
+
+  .mb-4 {
+    margin-bottom: 1rem !important; /* Reduce bottom spacing */
+  }
+}

@@ -3,38 +3,77 @@ import axios from "axios";
 const baseURL = process.env.NEXT_PUBLIC_API_URL;
 
 if (!baseURL) {
-    console.error("NEXT_PUBLIC_API_URL is not defined in the environment variables");
+    console.error("NEXT_PUBLIC_API_URL is not defined");
 }
 
-// Create axios instance with default configs
-export const api = axios.create({
-    baseURL: baseURL,
-    withCredentials: true, // Ensure cookies are sent with requests
-    headers: {
-        "Content-Type": "application/json",
-    },
-});
+let csrfToken = null;
 
-// Add an interceptor to include the CSRF token in every request
-api.interceptors.request.use(
-    (config) => {
-        // Extract the CSRF token from cookies
-        const csrfToken = document.cookie
-            .split("; ")
-            .find((row) => row.startsWith("csrf_token="))
-            ?.split("=")[1];
+// Function to fetch CSRF token explicitly
+export const fetchCsrfToken = async () => {
+    try {
+        const response = await axios.get(`${baseURL}/csrf-token`, {
+            withCredentials: true,
+        });
+        csrfToken = response.data?.csrf_token;
 
         if (csrfToken) {
-            config.headers["X-CSRF-Token"] = csrfToken; // Attach the CSRF token to the header
-        } else {
-            console.warn("CSRF token not found in cookies");
+            console.log("Fetched CSRF token:", csrfToken);
+            api.defaults.headers.common["X-CSRF-Token"] = csrfToken;
         }
-
-        return config;
-    },
-    (error) => {
-        return Promise.reject(error); // Handle errors
+        return csrfToken;
+    } catch (error) {
+        console.error("Error fetching CSRF token:", error);
+        return null;
     }
-);
+};
 
-export default api;
+// Function to create an Axios instance
+export const createAxiosInstance = (signal) => {
+    const axiosInstance = axios.create({
+        baseURL,
+        withCredentials: true,
+        headers: {
+            "Content-Type": "application/json",
+        },
+        signal, // Optional AbortController signal
+    });
+
+    // Request Interceptor
+    axiosInstance.interceptors.request.use(
+        (config) => {
+            if (csrfToken) {
+                config.headers["X-CSRF-Token"] = csrfToken;
+            } else {
+                console.warn("CSRF token not found. Ensure to fetch it before API calls.");
+            }
+            return config;
+        },
+        (error) => Promise.reject(error)
+    );
+
+    // Response Interceptor
+    axiosInstance.interceptors.response.use(
+        (response) => {
+            const newToken = response.headers["x-csrf-token"];
+            if (newToken) {
+                csrfToken = newToken;
+                axiosInstance.defaults.headers.common["X-CSRF-Token"] = newToken;
+                console.log("Updated CSRF token:", newToken);
+            }
+            return response;
+        },
+        (error) => {
+            return Promise.reject(error);
+        }
+    );
+
+    return axiosInstance;
+};
+
+// Default Axios instance
+export const api = createAxiosInstance();
+
+// Initialize CSRF token during app startup
+(async () => {
+    await fetchCsrfToken();
+})();

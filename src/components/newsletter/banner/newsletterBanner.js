@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Link from "next/link";
 
 const NewsletterBanner = () => {
     const [isHovered, setIsHovered] = useState(false);
@@ -73,7 +74,7 @@ const NewsletterBanner = () => {
                                     e.currentTarget.style.transform = 'scale(1)'; // Reset to original size
                                 }}
                             >
-                                Contact us now
+                                <Link href="/contact">Contact us now</Link>
                             </button>
                         </div>
                         {/* Text Underneath */}
