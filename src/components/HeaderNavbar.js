@@ -26,37 +26,37 @@ const HeaderNavbar = () => {
                     </Nav>
 
                     {/* Section Middle */}
-                    <Nav className="mx-auto">
-                        <Nav.Link as="span">
-                            <Link href="/" className="text-white fs-5 no-underline">
-                                Home
-                            </Link>
-                        </Nav.Link>
-                        <Nav.Link as="span">
-                            <Link href="/about" className="text-white fs-5 no-underline">
-                                About
-                            </Link>
-                        </Nav.Link>
-                        <Nav.Link as="span">
-                            <Link href="/services" className="text-white fs-5 no-underline">
-                                Services
-                            </Link>
-                        </Nav.Link>
-                        <Nav.Link as="span">
-                            <Link href="/contact" className="text-white fs-5 no-underline">
-                                Contact
-                            </Link>
-                        </Nav.Link>
-                    </Nav>
+                    {/*<Nav className="mx-auto">*/}
+                    {/*    <Nav.Link as="span">*/}
+                    {/*        <Link href="/" className="text-white fs-5 no-underline">*/}
+                    {/*            Home*/}
+                    {/*        </Link>*/}
+                    {/*    </Nav.Link>*/}
+                    {/*    <Nav.Link as="span">*/}
+                    {/*        <Link href="/about" className="text-white fs-5 no-underline">*/}
+                    {/*            About*/}
+                    {/*        </Link>*/}
+                    {/*    </Nav.Link>*/}
+                    {/*    <Nav.Link as="span">*/}
+                    {/*        <Link href="/services" className="text-white fs-5 no-underline">*/}
+                    {/*            Services*/}
+                    {/*        </Link>*/}
+                    {/*    </Nav.Link>*/}
+                    {/*    <Nav.Link as="span">*/}
+                    {/*        <Link href="/contact" className="text-white fs-5 no-underline">*/}
+                    {/*            Contact*/}
+                    {/*        </Link>*/}
+                    {/*    </Nav.Link>*/}
+                    {/*</Nav>*/}
 
                     {/* Section Right */}
-                    <Nav className="ms-auto">
-                        <Nav.Link as="span">
-                            <Link href="/contact" className="no-underline fs-6" style={{ color: "#38F1B9" }}>
-                                Start New Project
-                            </Link>
-                        </Nav.Link>
-                    </Nav>
+                    {/*<Nav className="ms-auto">*/}
+                    {/*    <Nav.Link as="span">*/}
+                    {/*        <Link href="/contact" className="no-underline fs-6" style={{ color: "#38F1B9" }}>*/}
+                    {/*            Start New Project*/}
+                    {/*        </Link>*/}
+                    {/*    </Nav.Link>*/}
+                    {/*</Nav>*/}
                 </Navbar.Collapse>
             </Container>
         </Navbar>

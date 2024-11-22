@@ -3,8 +3,8 @@ import dynamic from "next/dynamic"; // Dynamically import components
 import animationDataCelebration from "./newsletter_celebration.json";
 import animationDataRightSide from "./newsletter_right_section.json";
 import AnimatedButton from "@/components/Buttons/AnimatedButton";
-import {api} from "@/services/axios";
-import { toast } from 'react-toastify';
+import { api } from "@/services/axios";
+import { toast } from "react-toastify";
 import NewsletterBanner from "@/components/newsletter/banner/newsletterBanner";
 
 // Dynamically import Lottie to avoid SSR issues
@@ -16,10 +16,10 @@ export function Newsletter() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const showAnimation = () => {
-    setAnimationVisible(false);
+    setAnimationVisible(true); // Show the animation
     setTimeout(() => {
-      setAnimationVisible(true);
-    }, 0.1);
+      setAnimationVisible(false); // Hide the animation after 3 seconds
+    }, 3000);
   };
 
   const fetchCsrfToken = async () => {
@@ -33,51 +33,71 @@ export function Newsletter() {
       return null;
     }
   };
+
   const handleSubscribe = async () => {
-    setIsSubmitting(true)
+    if (isSubmitting) return; // Prevent multiple submissions
+    setIsSubmitting(true);
     if (!email) {
-      toast.warn("Email is required")
-      console.log("Email is required");
+      toast.warn("Email is required");
+      setIsSubmitting(false);
       return;
     }
     try {
       const csrfToken = await fetchCsrfToken();
       if (!csrfToken) {
-        setIsSubmitting(false)
-        toast.warn("Something went wrong, please try again.")
-        console.log("Something went wrong, please try again.");
+        toast.warn("Something went wrong, please try again.");
+        setTimeout(() => {
+          setIsSubmitting(false);
+        }, 4000); // 4000ms = 4 seconds
         return;
       }
-      const response = await api.post("email-subscription", {"email_address":email,}, {
-        headers: {
-          "X-CSRF-TOKEN": csrfToken,
-        },
-      });
-      console.log("response status !!!", response?.status);
+
+      const response = await api.post(
+          "email-subscription",
+          { email_address: email },
+          {
+            headers: {
+              "X-CSRF-TOKEN": csrfToken,
+            },
+          }
+      );
+
       if (response.status === 201) {
-        showAnimation();
-        toast.success("Email added successfully.")
-        setIsSubmitting(false)
+        setTimeout(() => {
+          setIsSubmitting(false);
+        }, 4000); // 4000ms = 4 seconds
+        showAnimation(); // Trigger the celebration animation
+        toast.success("Email added successfully.");
+        setEmail(""); // Clear the email input
       }
     } catch (error) {
-     if (error?.status === 409) {
-      setIsSubmitting(false)
-      toast.warn("Your Email is already subscribed!")
+      if (error?.response?.status === 409) {
+        setTimeout(() => {
+          setIsSubmitting(false);
+        }, 4000); // 4000ms = 4 seconds
+        toast.warn("Your Email is already subscribed!");
+      } else {
+        setTimeout(() => {
+          setIsSubmitting(false);
+        }, 4000); // 4000ms = 4 seconds
+        toast.error("Something went wrong, please try again.");
+      }
+    } finally {
+      setTimeout(() => {
+        setIsSubmitting(false);
+      }, 4000); // 4000ms = 4 seconds
     }
-    else {
-      toast.error("Something went wrong, please try again.")
-      setIsSubmitting(false)
-     }
-  }}
+  };
+
   return (
       <>
-        <NewsletterBanner/>
-        <div className="container mt-5">
+        <NewsletterBanner />
+        <div className="container">
           <div className="row p-5">
             <div className="col-lg-8 col-md-12 col-sm-12 mb-4">
               <h1 className="text-center text-lg-start">
                 SUBSCRIBE TO OUR{" "}
-                <span style={{color: "#38F1B9"}}>NEWSLETTER </span>!{" "}
+                <span style={{ color: "#38F1B9" }}>NEWSLETTER </span>!{" "}
               </h1>
               <p className="text-white mb-4 text-center text-lg-start">
                 You will never miss important product updates, latest news, and
@@ -90,29 +110,38 @@ export function Newsletter() {
                   }}
               >
                 <div className="d-flex flex-column flex-lg-row align-items-center">
-                  {/* Modified this div's classes and added px-3 for mobile padding */}
                   <div className="col-lg-8 col-12 mb-3 mb-lg-0 me-lg-3 px-3 px-lg-0">
                     <input
                         type="email"
                         name="newsletter_email"
                         id="newsletter_email"
-                        className="form-control w-100" // Added w-100 to ensure full width
+                        className="form-control w-100"
                         placeholder="Your email address"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required={true}
-                        disabled={isSubmitting}
-                        style={{
-                          fontSize: "1rem",
-                          padding: "0.75rem",
-                        }}
                     />
                   </div>
-                  <AnimatedButton
-                      type="submit"
-                      text="Subscribe to our newsletter"
-                      className="btn btn-primary"
-                  />
+                  <div className="position-relative">
+                    {animationVisible && (
+                        <div
+                            className="position-absolute start-50 translate-middle"
+                            style={{ zIndex: 1000 }}
+                        >
+                          <Lottie
+                              animationData={animationDataCelebration}
+                              loop={true}
+                              autoplay={true}
+                          />
+                        </div>
+                    )}
+                    <AnimatedButton
+                        type="submit"
+                        text="Subscribe to our newsletter"
+                        className="btn btn-primary"
+                        disabled={isSubmitting}
+                    />
+                  </div>
                 </div>
               </form>
             </div>
@@ -122,6 +151,11 @@ export function Newsletter() {
                     animationData={animationDataRightSide}
                     loop={true}
                     autoplay={true}
+                    style={{
+                      width: "100%",
+                      maxWidth: "400px",
+                      height: "auto",
+                    }}
                 />
               </div>
             </div>

@@ -1,8 +1,9 @@
 import React from "react";
 
-const AnimatedButton = ({ text, onClick, className = "", style = {} }) => {
+export default function AnimatedButton({ text, onClick, disabled = false, className = "", style = {} }) {
     return (
         <button
+            disabled={disabled}
             onClick={onClick}
             className={`btn px-4 py-2 rounded-pill text-white border-0 ${className}`}
             style={{
@@ -23,6 +24,4 @@ const AnimatedButton = ({ text, onClick, className = "", style = {} }) => {
             {text}
         </button>
     );
-};
-
-export default AnimatedButton;
+}

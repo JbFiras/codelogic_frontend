@@ -78,7 +78,7 @@ const NewsletterBanner = () => {
                         </div>
                         {/* Text Underneath */}
                         <div className="mt-2">
-                            <small className="text-white">we don't bite. Usually</small>
+                            <small className="text-white">We don't bite. Usually!</small>
                         </div>
                     </div>
                 </div>
