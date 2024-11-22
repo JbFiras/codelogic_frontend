@@ -70,10 +70,3 @@ a {
     height: 59px;
   }
 }
-
-/* Ensure proper spacing at the bottom of the page */
-body::after {
-  content: "";
-  display: block;
-  height: 172px; /* Match the height of the shape divider */
-}
