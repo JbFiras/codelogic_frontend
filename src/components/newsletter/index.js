@@ -25,34 +25,30 @@ export function Newsletter() {
 
 
   const handleSubscribe = async () => {
-    if (isSubmitting) return; // Prevent multiple submissions
+    if (isSubmitting) return;
     setIsSubmitting(true);
-    if (!email) {
-      toast.warn("Email is required");
-      setIsSubmitting(false);
-      return;
-    }
+
     try {
-      const csrfToken = await fetchCsrfToken();
-      if (!csrfToken) {
-        toast.warn("Failed to fetch CSRF token. Please try again.");
+      // Explicitly fetch CSRF token before making the request
+      await fetchCsrfToken();
+
+      if (!email) {
+        toast.warn("Email is required");
         setIsSubmitting(false);
         return;
       }
-      const response = await api.post(
-          "/email-subscription",
-          { email_address: email },
-          {
-            withCredentials: true,
-          }
-      );
+
+      const response = await api.post("/email-subscription", {
+        email_address: email
+      });
+
       if (response.status === 201) {
         showAnimation();
         toast.success("Email added successfully.");
         setEmail("");
       }
     } catch (error) {
-      if (error?.response?.status === 409) {
+      if (error.response?.status === 409) {
         toast.warn("Your Email is already subscribed!");
       } else {
         toast.error("Something went wrong. Please try again.");
@@ -63,7 +59,6 @@ export function Newsletter() {
       }, 4000);
     }
   };
-
   return (
       <>
         <NewsletterBanner />
