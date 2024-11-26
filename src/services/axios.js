@@ -17,12 +17,11 @@ export const fetchCsrfToken = async () => {
         csrfToken = response.data?.csrf_token;
 
         if (csrfToken) {
-            console.log("Fetched CSRF token:", csrfToken);
             api.defaults.headers.common["X-CSRF-Token"] = csrfToken;
         }
         return csrfToken;
     } catch (error) {
-        console.error("Error fetching CSRF token:", error);
+        // console.error("Error fetching CSRF token:", error);
         return null;
     }
 };
@@ -43,22 +42,20 @@ export const createAxiosInstance = (signal) => {
         (config) => {
             if (csrfToken) {
                 config.headers["X-CSRF-Token"] = csrfToken;
-            } else {
-                console.warn("CSRF token not found. Ensure to fetch it before API calls.");
             }
+            // else {
+            //     console.warn("CSRF token not found. Ensure to fetch it before API calls.");
+            // }
             return config;
         },
         (error) => Promise.reject(error)
     );
-
-    // Response Interceptor
     axiosInstance.interceptors.response.use(
         (response) => {
             const newToken = response.headers["x-csrf-token"];
             if (newToken) {
                 csrfToken = newToken;
                 axiosInstance.defaults.headers.common["X-CSRF-Token"] = newToken;
-                console.log("Updated CSRF token:", newToken);
             }
             return response;
         },
@@ -73,7 +70,7 @@ export const createAxiosInstance = (signal) => {
 // Default Axios instance
 export const api = createAxiosInstance();
 
-// Initialize CSRF token during app startup
-(async () => {
-    await fetchCsrfToken();
-})();
+// // Initialize CSRF token during app startup
+// (async () => {
+//     await fetchCsrfToken();
+// })();

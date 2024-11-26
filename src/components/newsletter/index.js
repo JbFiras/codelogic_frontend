@@ -29,7 +29,6 @@ export function Newsletter() {
     setIsSubmitting(true);
 
     try {
-      // Explicitly fetch CSRF token before making the request
       await fetchCsrfToken();
 
       if (!email) {
