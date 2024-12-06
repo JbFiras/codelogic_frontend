@@ -42,7 +42,7 @@ export default function HeaderNavbar() {
     // Update underline position dynamically based on screen size
     useEffect(() => {
         const updateUnderlineLeft = () => {
-            if (window.matchMedia("(max-width: 768px)").matches) {
+            if (window.matchMedia("(max-width: 991px)").matches) {
                 setUnderlineLeft("10px"); // Value for small or medium screens
             } else {
                 setUnderlineLeft("50%"); // Value for large screens

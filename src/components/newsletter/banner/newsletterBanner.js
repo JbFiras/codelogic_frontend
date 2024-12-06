@@ -10,7 +10,7 @@ const NewsletterBanner = () => {
                 className="p-5 mt-5 position-relative text-center text-md-start"
                 style={{ backgroundColor: '#4B65FD', minHeight: '200px' }}
             >
-                <div className="d-flex flex-column flex-md-row align-items-center justify-content-between h-100">
+                <div className="container d-flex flex-column flex-md-row align-items-center justify-content-between h-100">
                     {/* Left Section */}
                     <div className="text-white mb-3 mb-md-0">
                         <h1>

@@ -2,6 +2,8 @@ import React from "react";
 import HeaderNavbar from "@/components/HeaderNavbar";
 import IconCarousel from "@/components/LandingPage/heroSection/IconCarousel";
 import { TabsAboutUs } from "@/components/ui/tabs/TabsAboutUs";
+import Link from "next/link";
+import {Button} from "react-bootstrap";
 
 const AboutPage = () => {
     return (
@@ -32,6 +34,12 @@ const AboutPage = () => {
                 </div>
                 <div className="pb-3 mb-3">
                     <TabsAboutUs/>
+                    <div className="text-center">
+                        <h2 className="mb-3">Looking for something else?</h2>
+                        <Link href="/connect" className="text-white fs-5 no-underline">
+                            <Button variant="outline-light rounded-pill">CONTACT US</Button>
+                        </Link>
+                    </div>
                 </div>
                 <div className="container py-5 mt-3 pt-3">
                     <IconCarousel/>

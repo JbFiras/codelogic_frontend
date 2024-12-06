@@ -1,8 +1,7 @@
 import React from "react";
 import HeaderNavbar from "@/components/HeaderNavbar";
 import IconCarousel from "@/components/LandingPage/heroSection/IconCarousel";
-import {Button} from "react-bootstrap";
-import Link from "next/link";
+import NewsletterBanner from "@/components/newsletter/banner/newsletterBanner";
 
 export default function Pricing() {
     return (
@@ -100,12 +99,7 @@ export default function Pricing() {
             </div>
             <div className="container">
                 <IconCarousel/>
-                <div className="text-center mt-3 ">
-                    <h2 className="mb-3">Looking for something else?</h2>
-                    <Link href="/connect" className="text-white fs-5 no-underline">
-                        <Button variant="outline-light rounded-pill">CONTACT US</Button>
-                    </Link>
-                </div>
+                <NewsletterBanner/>
             </div>
 
             <div className="container my-5">
