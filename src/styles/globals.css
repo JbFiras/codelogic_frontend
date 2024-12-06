@@ -112,3 +112,7 @@ a {
     margin-bottom: 1rem !important; /* Reduce bottom spacing */
   }
 }
+
+.bg-gradient {
+  background: linear-gradient(to bottom right, #6f42c1, #6610f2);
+}

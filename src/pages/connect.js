@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Globe from "@/components/ui/Globe";
 import HeaderNavbar from "@/components/HeaderNavbar";
 
-export default function Contact() {
+export default function Connect() {
     const [formData, setFormData] = useState({
         email: "",
         name: "",
@@ -36,7 +36,7 @@ export default function Contact() {
                 className="container-fluid text-light py-5 mt-5"
             >
                 <div className="row justify-content-center align-items-center">
-                    {/* Left Column: Contact Form */}
+                    {/* Left Column: Connect Form */}
                     <div className="col-12 col-xl-5 mb-5 mb-xl-0">
                         <div
                             className="p-4 shadow rounded bg-white text-dark"
@@ -99,13 +99,7 @@ export default function Contact() {
                                     ></textarea>
                                 </div>
                                 <div className="text-center">
-                                    <button
-                                        type="submit"
-                                        className="btn btn-primary"
-                                        disabled={!isFormValid}
-                                    >
-                                        Send Message
-                                    </button>
+                                    <button className="btn btn-dark rounded-pill w-100" type="submit" disabled={!isFormValid}>Send Message</button>
                                 </div>
                             </form>
                         </div>

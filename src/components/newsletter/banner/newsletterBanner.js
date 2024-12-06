@@ -74,10 +74,9 @@ const NewsletterBanner = () => {
                                     e.currentTarget.style.transform = 'scale(1)'; // Reset to original size
                                 }}
                             >
-                                <Link href="/contact">Contact us now</Link>
+                                <Link href="/connect">Connect us now</Link>
                             </button>
                         </div>
-                        {/* Text Underneath */}
                         <div className="mt-2">
                             <small className="text-white">We don't bite. Usually!</small>
                         </div>
@@ -96,7 +95,7 @@ const NewsletterBanner = () => {
                 >
                     <img
                         src="/assets/mockups/curve_line.svg"
-                        alt="Contact Line"
+                        alt="Connect Line"
                         style={{ maxWidth: '100%', height: 'auto' }}
                     />
                 </div>

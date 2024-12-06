@@ -108,7 +108,7 @@ export function Newsletter() {
                         type="submit"
                         text="Subscribe to our newsletter"
                         className="btn btn-primary"
-                        disabled={isSubmitting}
+                        disabled={true} //isSubmitting
                     />
                   </div>
                 </div>
