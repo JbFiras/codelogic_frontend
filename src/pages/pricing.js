@@ -10,7 +10,8 @@ export default function Pricing() {
             <div className="container py-5">
                 <h2 className="text-center mb-5">Pricing</h2>
                 <div className="row g-4">
-                    <div className="col-md-6">
+                    <div className="col-md-1"></div>
+                    <div className="col-md-5">
                         <div className="card shadow h-100">
                             <div className="card-header text-center bg-black text-white">
                                 End-to-end development
@@ -49,11 +50,12 @@ export default function Pricing() {
                                         <option>All of them</option>
                                     </select>
                                 </div>
-                                <button className="btn btn-dark rounded-pill w-100" disabled={true}>Get a Quote</button>
+                                <button className="btn btn-dark rounded-pill w-100" disabled={true}>Get a Quote
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-5">
                         <div className="card shadow h-100">
                             <div className="card-header text-center bg-black text-white">
                                 Dedicated developers
@@ -91,10 +93,14 @@ export default function Pricing() {
                                         <option>An uncertain period</option>
                                     </select>
                                 </div>
-                                <button className="btn btn-dark rounded-pill w-100 mt-4" disabled={true}>Get a Quote</button>
+                                <button className="btn btn-dark rounded-pill w-100 mt-4" disabled={true}>Get a
+                                    Quote
+                                </button>
                             </div>
                         </div>
                     </div>
+                    <div className="col-md-1"></div>
+
                 </div>
             </div>
             <div className="container">

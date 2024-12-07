@@ -28,9 +28,7 @@ export default function Home() {
                 pauseOnHover
             />
         </main>
-
-        <footer>
-        </footer>
+        <footer></footer>
       </div>
     </>
   );
