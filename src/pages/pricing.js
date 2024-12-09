@@ -8,7 +8,7 @@ export default function Pricing() {
     return (
         <>
             <HeaderNavbar />
-            <div className="container py-5">
+            <div className="container text-white py-5">
                 <h2 className="text-center mb-5">Pricing</h2>
                 <div className="row g-4">
                     <div className="col-md-1"></div>
@@ -99,11 +99,11 @@ export default function Pricing() {
                     <div className="col-md-1"></div>
                 </div>
             </div>
-            <div className="container">
+            <div className="container text-white">
                 <IconCarousel />
                 <NewsletterBanner />
             </div>
-            <div className="container my-5">
+            <div className="container text-white my-5">
                 <div className="p-4 shadow-lg rounded">
                     <h2 className="text-center mb-3">Cost of Outsourcing IT Services</h2>
                     <p>

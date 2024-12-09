@@ -66,7 +66,7 @@ export default function Services() {
         <>
             <HeaderNavbar/>
             <div className="py-5">
-                <div className="container">
+                <div className="container text-center">
                     <h2 className="text-center fw-bold">Our Services
                     </h2>
                     <h6 className="text-center fw-bold mb-5">
@@ -97,7 +97,7 @@ export default function Services() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.5 }}
-                                    className="d-flex align-items-center gap-3  p-4 shadow rounded"
+                                    className="d-flex align-items-center gap-3 p-4 shadow rounded"
                                 >
                                     <div className="p-3 bg-primary text-white rounded-circle">
                                         {service.icon}
@@ -112,7 +112,7 @@ export default function Services() {
                     </div>
                     <NewsletterBanner/>
 
-                    <div className="mt-4">
+                    <div className="text-white mt-4">
                         <h2 className="text-center fw-bold mb-3">Why Choose Us?</h2>
                         <div className="row g-4">
                             {reasons.map((reason, index) => (
