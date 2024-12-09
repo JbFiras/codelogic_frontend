@@ -69,6 +69,7 @@ const icons = [
     { component: SiFastapi, name: "FastAPI", color: "#3776AB" },
     { component: SiZapier, name: "Zapier", color: "#3776AB" },
     { component: SiMailchimp, name: "Mailchimp", color: "#3776AB" },
+    { component: SiNotion, name: "Notion", color: "#3776AB" },
 ];
 
 export default function IconCarousel() {
