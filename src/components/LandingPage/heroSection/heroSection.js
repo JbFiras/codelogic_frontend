@@ -41,8 +41,8 @@ export default function HeroSection() {
                                         }}
                                     />
                                 </h5>
-                                <h6>
-                                    At <span className="fw-bold text-white">CODELOGIC</span>, We engineer innovative solutions to
+                                <h6 className="text-white">
+                                    At <span className="fw-bold">CODELOGIC</span>, We engineer innovative solutions to
                                     transform your vision <br/> into a thriving reality.
                                 </h6>
                                 <Row className="mt-3 justify-content-center justify-content-lg-start">
