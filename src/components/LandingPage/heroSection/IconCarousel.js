@@ -80,8 +80,7 @@ export default function IconCarousel() {
     return (
         <>
             <h3 className="container-fluid text-center text-white">
-                Empowering businesses to achieve remarkable success by leveraging advanced tools and innovative technologies
-                <br/>tailored to their unique needs.
+                Empowering businesses with advanced tools and innovative technologies tailored to their unique needs.
             </h3>
             <div className={`${styles.carouselContainer} container-fluid`}>
                 <div className={`${styles.carousel}`}>
