@@ -66,8 +66,8 @@ export default function Services() {
         <>
             <HeaderNavbar/>
             <div className="py-5">
-                <div className="container text-center">
-                    <h2 className="text-center fw-bold">Our Services
+                <div className="container text-center text-white">
+                    <h2 className="text-center fw-bold ">Our Services
                     </h2>
                     <h6 className="text-center fw-bold mb-5">
                         We specialize in delivering a diverse range of cutting-edge solutions tailored to meet your unique business needs.
