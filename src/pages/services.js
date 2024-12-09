@@ -103,8 +103,8 @@ export default function Services() {
                                         {service.icon}
                                     </div>
                                     <div>
-                                        <h3 className="fw-bold mb-2">{service.name}</h3>
-                                        <p className="">{service.description}</p>
+                                        <h3 className="text-white fw-bold mb-2">{service.name}</h3>
+                                        <p className="text-white">{service.description}</p>
                                     </div>
                                 </motion.div>
                             </div>
@@ -126,9 +126,9 @@ export default function Services() {
                                     <div className="p-4  shadow rounded">
                                         <div className="d-flex align-items-center mb-3">
                                             <CheckCircle className="text-success me-2" />
-                                            <h3 className="fw-bold mb-0">{reason.title}</h3>
+                                            <h3 className="text-white fw-bold mb-0">{reason.title}</h3>
                                         </div>
-                                        <p className=" text-white">{reason.description}</p>
+                                        <p className="text-white">{reason.description}</p>
                                     </div>
                                 </motion.div>
                             ))}
