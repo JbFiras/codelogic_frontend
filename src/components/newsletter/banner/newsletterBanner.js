@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Link from "next/link";
+import Image from 'next/image'
 
 const NewsletterBanner = () => {
     const [isHovered, setIsHovered] = useState(false);
@@ -93,10 +94,12 @@ const NewsletterBanner = () => {
                         pointerEvents: 'none',
                     }}
                 >
-                    <img
+                    <Image
                         src="/assets/mockups/curve_line.svg"
                         alt="Connect Line"
                         style={{ maxWidth: '100%', height: 'auto' }}
+                        width={500}
+                        height={500}
                     />
                 </div>
             </div>

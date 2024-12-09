@@ -1,5 +1,6 @@
 import CodeCard from "@/components/LandingPage/heroSection/CodeCard";
 import ServiceCard from "@/components/LandingPage/heroSection/ServiceCard";
+import Image from 'next/image'
 
 export default function Services() {
     return (
@@ -79,7 +80,9 @@ export default function Services() {
                         </div>
                     </div>
                     {/* end of description part*/}
-                    <img src="/assets/mockups/lines.svg" alt="" className="img-anonHeader"/>
+                    <Image src="/assets/mockups/lines.svg" alt="" className="img-anonHeader"                         width={500}
+                           height={500}
+                    />
                 </div>
             </header>
             <div className="main-container service-container">

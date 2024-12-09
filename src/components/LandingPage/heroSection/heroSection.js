@@ -3,6 +3,7 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Typewriter from 'typewriter-effect';
 import ButtonReactive from "@/components/Buttons/ButtonReactive";
+import Image from 'next/image'
 
 export default function HeroSection() {
     return (
@@ -56,19 +57,24 @@ export default function HeroSection() {
                                 <div
                                     className="hero_section_right_side text-center text-lg-left mb-sm-5 pb-md-5 mb-sm-5 pb-md-5">
                                     <div className="bkPsUw mockup1">
-                                        <img src="/assets/mockups/mockup-card.svg" alt="Mockup"/>
+                                        <Image src="/assets/mockups/mockup-card.svg" alt="Mockup"                         width={500}
+                                               height={500}/>
                                     </div>
                                     <div className="hKkpRc mockup2">
-                                        <img src="/assets/mockups/mockup-card2.svg" alt="Mockup"/>
+                                        <Image src="/assets/mockups/mockup-card2.svg" alt="Mockup"                         width={500}
+                                               height={500}/>
                                     </div>
                                     <div className="qttSU mockup3">
-                                        <img src="/assets/mockups/mockup-content.svg" alt="Mockup"/>
+                                        <Image src="/assets/mockups/mockup-content.svg" alt="Mockup"                         width={500}
+                                               height={500}/>
                                     </div>
                                     <div className="csUyAM mockup4">
-                                        <img src="/assets/mockups/mockup2-bg.svg" alt="Mockup"/>
+                                        <Image src="/assets/mockups/mockup2-bg.svg" alt="Mockup"                         width={500}
+                                               height={500}/>
                                     </div>
                                     <div className="kPVVkw mockup5">
-                                        <img src="/assets/mockups/mockup3-bg.svg" alt="Mockup"/>
+                                        <Image src="/assets/mockups/mockup3-bg.svg" alt="Mockup"                         width={500}
+                                               height={500}/>
                                     </div>
                                 </div>
                             </Col>
