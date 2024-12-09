@@ -1,11 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // images: {
+  //   domains: [''],
+  // },
   reactStrictMode: true,
+  trailingSlash: true,
   // output: 'export', // Enable static export
-  trailingSlash: true, // Adds a trailing slash to all paths
-  images: {
-    domains: [''], // Add allowed domains here
-  },
+
 };
 
 export default nextConfig;

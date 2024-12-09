@@ -70,7 +70,7 @@ export default function Services() {
                         </CodeCard>
                     </div>
                     <div className="description">
-                        <div className="gutter-1 d-flex text-center mt-5">
+                        <div className="gutter-1 d-flex text-center pt-5">
                             <h1>
                                 TOGETHER WE <span style={{color: "#38F1B9"}}>PUSH </span>YOU
                                 <span style={{color: "#38F1B9"}}>.</span> <br/>
