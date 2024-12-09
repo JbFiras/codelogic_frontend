@@ -71,7 +71,7 @@ export default function Services() {
                     </div>
                     <div className="description">
                         <div className="gutter-1 d-flex text-center pt-5">
-                            <h1>
+                            <h1 className="text-white">
                                 TOGETHER WE <span style={{color: "#38F1B9"}}>PUSH </span>YOU
                                 <span style={{color: "#38F1B9"}}>.</span> <br/>
                                 TOGETHER WE <span style={{color: "#38F1B9"}}>THRIVE</span>!

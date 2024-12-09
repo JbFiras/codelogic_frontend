@@ -61,7 +61,7 @@ export function Newsletter() {
         <div className="container">
           <div className="row p-5">
             <div className="col-lg-8 col-md-12 col-sm-12 mb-4">
-              <h1 className="text-center text-lg-start">
+              <h1 className="text-center text-lg-start text-white">
                 SUBSCRIBE TO OUR{" "}
                 <span style={{ color: "#38F1B9" }}>NEWSLETTER </span>!{" "}
               </h1>
