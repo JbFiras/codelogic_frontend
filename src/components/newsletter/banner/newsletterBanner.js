@@ -74,7 +74,7 @@ const NewsletterBanner = () => {
                                     e.currentTarget.style.transform = 'scale(1)'; // Reset to original size
                                 }}
                             >
-                                <Link href="/connect">Connect us now</Link>
+                                <Link href="/connect">Contact us now</Link>
                             </button>
                         </div>
                         <div className="mt-2">

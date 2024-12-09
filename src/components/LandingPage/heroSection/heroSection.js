@@ -1,7 +1,8 @@
+'use client';
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import Services from "@/components/LandingPage/heroSection/services";
 import Typewriter from 'typewriter-effect';
+import ButtonReactive from "@/components/Buttons/ButtonReactive";
 
 export default function HeroSection() {
     return (
@@ -29,7 +30,7 @@ export default function HeroSection() {
                                     <span>CODE</span>
                                     <span style={{color: "#38F1B9"}}>LOGIC</span>
                                 </h1>
-                                <h2 className="text-white">
+                                <h5 className="text-white mb-5">
                                     A consulting firm specialized in
                                     <Typewriter
                                         options={{
@@ -39,12 +40,16 @@ export default function HeroSection() {
                                             pauseFor: 10000,
                                         }}
                                     />
-                                </h2>
-                                {/* <Nav.Link as={Link} to="/contact" className="no-underline fs-6">
-                <button className="custom-btn btn-3">
-                  <span>LET’S TALK <FontAwesomeIcon icon={faArrowRight} /></span>
-                </button>
-              </Nav.Link> */}
+                                </h5>
+                                <h6>
+                                    At <span className="fw-bold">CODELOGIC,</span>, We engineer innovative solutions to
+                                    transform your vision <br/> into a thriving reality.
+                                </h6>
+                                <Row className="mt-3 justify-content-center justify-content-lg-start">
+                                    <Col xs="auto" >
+                                        <ButtonReactive autoRedirect={true} text={"LET’S TALK NOW"} />
+                                    </Col>
+                                </Row>
                             </Col>
                             <Col lg={6} data-aos="zoom-in" data-aos-delay="200"
                                  className="hero_section_col_right text-center d-none d-lg-block">

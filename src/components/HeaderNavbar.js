@@ -3,6 +3,7 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
+import ButtonReactive from "@/components/Buttons/ButtonReactive";
 
 export default function HeaderNavbar() {
     const router = useRouter();
@@ -12,6 +13,7 @@ export default function HeaderNavbar() {
 
     const navigation = [
         { name: "Home", href: "/" },
+        { name: "Services", href: "/services" },
         { name: "Pricing", href: "/pricing" },
         { name: "About", href: "/about" },
         { name: "Contact", href: "/connect" },
@@ -158,17 +160,9 @@ export default function HeaderNavbar() {
                             );
                         })}
                     </Nav>
-
                     <Nav className="ms-auto">
                         <Nav.Link as="span">
-                            <Link
-                                href="/connect"
-                                className="no-underline fs-6"
-                                style={{ color: "#38F1B9" }}
-                                onClick={closeNavbar} // Close navbar after clicking
-                            >
-                                Start New Project
-                            </Link>
+                            <ButtonReactive autoRedirect={true} text={"Start New Project"}/>
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

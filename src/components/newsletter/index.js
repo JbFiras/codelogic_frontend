@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import dynamic from "next/dynamic"; // Dynamically import components
 import animationDataCelebration from "./newsletter_celebration.json";
 import animationDataRightSide from "./newsletter_right_section.json";
-import AnimatedButton from "@/components/Buttons/AnimatedButton";
 import {api, fetchCsrfToken } from "@/services/axios";
 import { toast } from "react-toastify";
 import NewsletterBanner from "@/components/newsletter/banner/newsletterBanner";
+import ButtonReactive from "@/components/Buttons/ButtonReactive";
 
-// Dynamically import Lottie to avoid SSR issues
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 export function Newsletter() {
@@ -21,8 +20,6 @@ export function Newsletter() {
       setAnimationVisible(false); // Hide the animation after 3 seconds
     }, 3000);
   };
-
-
 
   const handleSubscribe = async () => {
     if (isSubmitting) return;
@@ -104,12 +101,13 @@ export function Newsletter() {
                           />
                         </div>
                     )}
-                    <AnimatedButton
-                        type="submit"
-                        text="Subscribe to our newsletter"
-                        className="btn btn-primary"
-                        disabled={true} //isSubmitting
-                    />
+                    {/*<AnimatedButton*/}
+                    {/*    type="submit"*/}
+                    {/*    text="Subscribe to our newsletter"*/}
+                    {/*    className="btn btn-primary"*/}
+                    {/*    disabled={true} //isSubmitting*/}
+                    {/*/>*/}
+                    <ButtonReactive type={"submit"} disabled={true} autoRedirect={false} text={"Subscribe to our newsletter"}/>
                   </div>
                 </div>
               </form>

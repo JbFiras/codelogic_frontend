@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Globe from "@/components/ui/Globe";
 import HeaderNavbar from "@/components/HeaderNavbar";
+import ButtonReactive from "@/components/Buttons/ButtonReactive";
 
 export default function Connect() {
     const [formData, setFormData] = useState({
@@ -33,19 +34,17 @@ export default function Connect() {
         <>
             <HeaderNavbar />
             <div
-                className="container-fluid text-light py-5 mt-5"
-            >
+                className="container-fluid text-ligh">
                 <div className="row justify-content-center align-items-center">
                     {/* Left Column: Connect Form */}
                     <div className="col-12 col-xl-5 mb-5 mb-xl-0">
                         <div
-                            className="p-4 shadow rounded bg-white text-dark"
+                            className="bg-gradient p-4 shadow rounded text-white"
                             style={{ maxWidth: "500px", margin: "0 auto" }}
                         >
                             <h2 className="mb-4 text-center">Contact Us</h2>
                             <p className="text-center mb-4">
-                                Leave your email and we will get back to you
-                                within 24 hours.
+                                Let's get the conversation started. Fill the form below and we'll get in touch as soon as we can.
                             </p>
                             <form onSubmit={handleSubmit}>
                                 <div className="mb-3">
@@ -55,6 +54,7 @@ export default function Connect() {
                                     <input
                                         type="email"
                                         id="email"
+                                        name="email"
                                         className="form-control"
                                         placeholder="your@email.com"
                                         value={formData.email}
@@ -66,23 +66,40 @@ export default function Connect() {
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="name" className="form-label">
-                                        Name
+                                        Name <span className="text-danger">*</span>
                                     </label>
                                     <input
                                         type="text"
                                         id="name"
+                                        name="name"
                                         className="form-control"
                                         placeholder="John Doe"
                                         value={formData.name}
                                         onChange={handleInputChange}
                                         aria-label="Your name"
+                                        aria-required="true"
+                                        required
                                     />
                                 </div>
                                 <div className="mb-3">
-                                    <label
-                                        htmlFor="message"
-                                        className="form-label"
-                                    >
+                                    <label htmlFor="company" className="form-label">
+                                        Company <span className="text-danger">*</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="company"
+                                        name="company"
+                                        className="form-control"
+                                        placeholder="Company"
+                                        value={formData.company}
+                                        onChange={handleInputChange}
+                                        aria-label="Company name"
+                                        aria-required="true"
+                                        required
+                                    />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="message" className="form-label">
                                         Your Message{" "}
                                         <span className="text-danger">*</span>
                                     </label>
@@ -90,7 +107,7 @@ export default function Connect() {
                                         id="message"
                                         className="form-control"
                                         rows={4}
-                                        placeholder="Leave your message here..."
+                                        placeholder="How can we help you?"
                                         value={formData.message}
                                         onChange={handleInputChange}
                                         aria-label="Your message"
@@ -98,17 +115,16 @@ export default function Connect() {
                                         required
                                     ></textarea>
                                 </div>
-                                <div className="text-center">
-                                    <button className="btn btn-dark rounded-pill w-100" type="submit" disabled={!isFormValid}>Send Message</button>
+                                <div className="text-center mt-4">
+                                    <ButtonReactive autoRedirect={false} type="submit" disabled={true}
+                                                    text={"CONTACT US"}/>
                                 </div>
                             </form>
                         </div>
                     </div>
-
-                    {/* Globe: Visible on all screen sizes */}
                     <div className="col-12 col-xl-6">
-                        <div className="globe-container">
-                            <Globe />
+                        <div className="globe-container d-none d-lg-block ">
+                            <Globe/>
                         </div>
                     </div>
                 </div>

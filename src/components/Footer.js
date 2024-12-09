@@ -1,5 +1,10 @@
+'use client';
 import React from "react";
 import Link from "next/link";
+import { FaFacebookF } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import {facebookUrl, instagramUrl, linkedinUrl} from "@/utils/constants";
 
 const Footer = () => {
     return (
@@ -19,6 +24,22 @@ const Footer = () => {
                     </div>
                     <div className="col-md-4 mb-3 mb-md-0"></div>
                     <div className="col-md-4 mb-3 mb-md-0"></div>
+                </div>
+                <div className="row">
+                    <div className="col text-end">
+                        <Link href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-light mx-2">
+                            <FaLinkedinIn size={20} />
+                        </Link>
+                        <Link href={instagramUrl} target="_blank" rel="noopener noreferrer" className="text-light mx-2">
+                            <FaInstagram size={20} />
+                        </Link>
+                        <Link href={facebookUrl} target="_blank" rel="noopener noreferrer" className="text-light mx-2">
+                            <FaFacebookF size={20} />
+                        </Link>
+                        {/*<Link href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="text-light mx-2">*/}
+                        {/*    <FaXTwitter size={20} />*/}
+                        {/*</Link>*/}
+                    </div>
                 </div>
                 <hr className="text-light" />
                 <div className="d-flex justify-content-between align-items-center">

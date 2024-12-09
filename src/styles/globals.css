@@ -114,5 +114,27 @@ a {
 }
 
 .bg-gradient {
-  background: linear-gradient(to bottom right, #6f42c1, #6610f2);
+  background: linear-gradient(to bottom right, #6f42c1, #8a42f2, #6610f2);
+}
+
+.form-select,
+.form-control,
+input[type="email"],
+input[type="text"],
+textarea {
+  color: #ffffff; /* Change text color to white */
+  background-color: rgba(255, 255, 255, 0.1); /* Adjust background for better contrast */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+  padding: 0.5rem; /* Adjust padding for aesthetics */
+  border-radius: 4px; /* Rounded corners */
+  transition: all 0.3s ease-in-out; /* Smooth transitions */
+}
+
+.form-select:focus,
+input[type="email"]:focus,
+input[type="text"]:focus,
+textarea:focus {
+  outline: none; /* Remove default focus outline */
+  border: 1px solid #47FF9C; /* Add a custom focus border */
+  box-shadow: 0 0 5px rgba(71, 255, 156, 0.5); /* Subtle glow effect on focus */
 }
