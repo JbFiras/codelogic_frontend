@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0c1534;
+}
+body {
+  background-color: var(--background);
+  color: white;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(15px, -20px) rotate(5deg); }
+}
+
+@keyframes float-medium {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-10px, -15px) rotate(-3deg); }
+}
+
+@keyframes float-fast {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(8px, -10px) rotate(3deg); }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 2rem));
+  }
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-draw {
+  stroke-dasharray: 100;
+  animation: draw 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-float-slow {
+  animation: float-slow 12s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: float-medium 10s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float-fast 8s ease-in-out infinite;
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+/* Hide scrollbar but allow scrolling */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Image container hover effects */
+.image-group {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+/* Mobile hover animations */
+@media (max-width: 1023px) {
+  .image-group:hover .floating-image-container:nth-child(1) {
+    transform: translate(-30px, -30px) rotate(-12deg) scale(1.1);
+  }
+
+  .image-group:hover .floating-image-container:nth-child(2) {
+    transform: translate(-50px, 20px) rotate(8deg) scale(1.1);
+  }
+
+  .image-group:hover .floating-image-container:nth-child(3) {
+    transform: translate(50px, -20px) rotate(-5deg) scale(1.1);
+  }
+
+  .image-group:hover .floating-image-container:nth-child(4) {
+    transform: translate(-30px, 40px) rotate(10deg) scale(1.1);
+  }
+
+  .image-group:hover .floating-image-container:nth-child(5) {
+    transform: translate(40px, 30px) rotate(-8deg) scale(1.1);
+  }
+}
+
+/* Desktop hover animations */
+@media (min-width: 1024px) {
+  .image-group:hover .floating-image-container:nth-child(1) {
+    transform: translate(-60px, -30px) rotate(-12deg) scale(1.1);
+  }
+
+  .image-group:hover .floating-image-container:nth-child(2) {
+    transform: translate(-80px, 30px) rotate(8deg) scale(1.1);
+  }
+
+  .image-group:hover .floating-image-container:nth-child(3) {
+    transform: translate(60px, -20px) rotate(-5deg) scale(1.1);
+  }
+
+  .image-group:hover .floating-image-container:nth-child(4) {
+    transform: translate(-40px, 50px) rotate(10deg) scale(1.1);
+  }
+
+  .image-group:hover .floating-image-container:nth-child(5) {
+    transform: translate(50px, 40px) rotate(-8deg) scale(1.1);
+  }
+}
+
+/* Smooth transitions for images */
+.floating-image-container {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.floating-image-container:hover {
+  z-index: 50 !important;
+  transform: scale(1.15) !important;
+  box-shadow:
+          0 20px 25px -5px rgb(0 0 0 / 0.3),
+          0 8px 10px -6px rgb(0 0 0 / 0.2),
+          0 0 12px 3px rgba(56, 241, 185, 0.1);
+}
+
+
