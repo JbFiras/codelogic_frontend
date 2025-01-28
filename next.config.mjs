@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   trailingSlash: true,
-  // output: 'export', // Enable static export
+  output: 'export', // Enable static export
   webpack: (config) => {
     config.cache = false;
     return config;
