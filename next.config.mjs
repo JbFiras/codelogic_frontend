@@ -31,16 +31,25 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: '/_next/static/:path*', // Match all static assets in the `_next/static/` folder
+        source: '/_next/static/:path*',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }, // Cache for 1 year
         ],
       },
       {
-        source: '/:path*{/}*', // Optionally set caching for other routes
+        source: '/:path*{/}*',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=0, must-revalidate' }, // Disable caching for HTML files
         ],
+      },
+    ];
+  },
+  async redirects() {
+    return [
+      {
+        source: '/404',
+        destination: '/404.html',
+        permanent: false,
       },
     ];
   },
