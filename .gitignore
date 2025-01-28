@@ -24,3 +24,5 @@ yarn-error.log*
 
 .next/
 node_modules/
+.idea/
+.idea
