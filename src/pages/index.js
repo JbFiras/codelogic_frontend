@@ -9,23 +9,23 @@ import FeaturesSection from "@/components/FeaturesSection";
 import { LatestProjectsSection } from "@/components/LatestProjectsSection";
 import CtaSection from "@/components/CtaSection";
 import { Newsletter } from "@/components/newsletter/Newsletter";
-import {AnimatedModal} from "@/components/ui/AnimatedModal";
 import { CompareCode } from "@/components/ui/CompareCode";
+import Expertise from "@/components/Expertise";
 
 
 export default function Home() {
   return (
       <>
-        <HeroSection />
-        <TechStack />
+          <HeroSection />
+          <TechStack />
           <CompareCode/>
           <ServicesSection />
-        <ProcessSection />
-        <FeaturesSection />
-        <LatestProjectsSection />
-        <CtaSection />
+          <Expertise />
+          <ProcessSection />
+          <FeaturesSection />
+          <LatestProjectsSection />
+          <CtaSection />
           <Newsletter />
-
       </>
   );
 }
