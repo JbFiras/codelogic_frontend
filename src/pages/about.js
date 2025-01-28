@@ -6,6 +6,7 @@ import { Target, Heart, Zap, Shield } from 'lucide-react';
 import GenericCta from '../components/GenericCta';
 import { useInView } from '../hooks/useInView';
 import PageHeader from '../components/PageHeader';
+import Expertise from "@/components/Expertise";
 
 function Stat({ number, label, delay }) {
     const { ref, isInView } = useInView();
@@ -154,24 +155,27 @@ export default function AboutPage() {
                         />
                     ))}
                 </div>
-            </div>
+                <div className="pt-16">
+                    <Expertise/>
+                </div>
+                </div>
 
-            {/* CTA Section */}
-            <GenericCta
-                title="Join Our Journey"
-                description="Whether you're looking to build something amazing or join our team, we'd love to hear from you."
-                buttons={[
-                    {
-                        text: "View Career Opportunities",
-                        variant: "primary"
-                    },
-                    {
-                        text: "Contact Us",
-                        variant: "secondary"
-                    }
-                ]}
-                className="pb-20"
-            />
-        </div>
-    );
-}
+                {/* CTA Section */}
+                <GenericCta
+                    title="Join Our Journey"
+                    description="Whether you're looking to build something amazing or join our team, we'd love to hear from you."
+                    buttons={[
+                        {
+                            text: "View Career Opportunities",
+                            variant: "primary"
+                        },
+                        {
+                            text: "Contact Us",
+                            variant: "secondary"
+                        }
+                    ]}
+                    className="pb-20"
+                />
+            </div>
+            );
+            }

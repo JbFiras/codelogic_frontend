@@ -4,6 +4,7 @@ import PageHeader from "../components/PageHeader";
 import GenericCta from "../components/GenericCta";
 import { useInView } from "../hooks/useInView";
 import { Code2, Database, Cloud, Shield, Smartphone, Globe, Cpu, GitBranch } from "lucide-react";
+import Expertise from "@/components/Expertise";
 
 function ServiceCard({ icon, title, description, features, delay }) {
     const { ref, isInView } = useInView();
@@ -153,8 +154,11 @@ export default function Services() {
             <div className="container mx-auto px-4 sm:px-6 py-20">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {services.map((service, index) => (
-                        <ServiceCard key={index} {...service} delay={200 * (index + 1)} />
+                        <ServiceCard key={index} {...service} delay={200 * (index + 1)}/>
                     ))}
+                </div>
+                <div className="pt-16">
+                    <Expertise/>
                 </div>
             </div>
 

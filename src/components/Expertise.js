@@ -189,7 +189,7 @@ export default function Expertise() {
     return (
         <section className=" py-8 flex flex-col">
             <div className="container mx-auto px-4 flex-1 flex flex-col">
-                <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-display mb-4">
+                <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-display mb-12">
                     Our Expertise
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative flex-1">
